@@ -503,12 +503,14 @@ class Column extends Fluent
 
         return $this;
     }
-
+        
     /**
      * @return array
      */
     public function toArray()
     {
+        $this->attributes['title'] = __($this->attributes['title']);
+
         return Arr::except($this->attributes, [
             'printable',
             'exportable',
